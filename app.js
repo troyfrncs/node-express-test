@@ -44,25 +44,32 @@ app.delete('/api/persons/:id', (req, res) => {
 
 // Ports
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}....`) )
+app.listen(port, () => console.log(`Listening on port ${port}....`) );
 
 // Promise
-
 const promise = new Promise((resolve, reject) => {
-  let a = 1 + 1
-  if (a === 2) {
-    setTimeout(() => {
-      resolve('Success')
-    }, 3000)
-  } else {
-    reject('Failed')
-  }
-})
+  setTimeout(() => {
+    resolve('Sucess');
+  }, 3000)
+});
 
 promise.then((message) => {
-  console.log(`Promise Status: ${message}`)
+  console.log(`Promise Status: ${message}`);
 }).catch((message) => {
-  console.log(`Promise Status: ${message}`)
-})
+  console.log(`Promise Status: ${message}`);
+});
 
-console.log('hello', window.location.pathname);
+//Async Await
+async function firstAsync() {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Sucess')
+    },3000)
+  });
+
+  let result = await promise;
+
+  console.log('Async Await Result:', result);
+}
+
+firstAsync();
