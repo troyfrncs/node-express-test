@@ -1,2 +1,2 @@
 # node-express-test
-A Simple Node and Express testing
+A simple Node and Express testing
